@@ -1,0 +1,15 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "JavaScript implementation of a classic game.",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf ./dist && mkdir -p ./dist && webpack && cp ./public/index.html ./dist/"
+  },
+  "author": "Ben New <ben@leftclick.com.au>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^3.0.0"
+  }
+}
