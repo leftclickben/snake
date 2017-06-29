@@ -21,7 +21,7 @@ function Snake (game) {
         if (dir === Direction.UP || dir === Direction.DOWN || dir === Direction.LEFT || dir === Direction.RIGHT) {
             directionChangeQueue.push(dir);
         }
-    }
+    };
 
     this.applyNextDirectionChange = () => {
         if (directionChangeQueue.length === 0) {
