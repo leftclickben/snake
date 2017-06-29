@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const Random = require('../../../public/app/util/Random');
 
-describe('The `Random` model', () => {
+describe('The `Random` utility module', () => {
     it('Is a constructor function', () => {
         expect(Random).to.be.a('function');
     });

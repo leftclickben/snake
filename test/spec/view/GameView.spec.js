@@ -3,7 +3,7 @@ const sinon = require('sinon');
 const GameView = require('../../../public/app/view/GameView');
 const Game = require('../../../public/app/model/Game');
 
-describe('The `GameView` model', () => {
+describe('The `GameView` view controller', () => {
     it('Is a constructor function', () => {
         expect(GameView).to.be.a('function');
     });

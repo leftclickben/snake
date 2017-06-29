@@ -1,6 +1,6 @@
 module.exports = Apple;
 
-const Position = require('./Position');
+const Position = require('../util/Position');
 
 function Apple (game) {
     var position, points;
@@ -10,13 +10,13 @@ function Apple (game) {
     this.points = () => points;
 
     this.reset = function () {
-        position = Position.random(game);
+        position = Position.random(game.width(), game.height());
         points = 100;
         return this;
     };
 
     this.next = function () {
-        position = Position.random(game);
+        position = Position.random(game.width(), game.height());
         points = points + 10;
         return this;
     };

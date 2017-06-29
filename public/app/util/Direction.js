@@ -1,6 +1,6 @@
 module.exports = Direction;
 
-const Random = require('../util/Random');
+const Random = require('./Random');
 
 function Direction () {}
 

@@ -1,7 +1,7 @@
 module.exports = Snake;
 
-const Position = require('./Position');
-const Direction = require('./Direction');
+const Position = require('../util/Position');
+const Direction = require('../util/Direction');
 
 function Snake (game) {
     var body = [],
@@ -70,7 +70,7 @@ function Snake (game) {
     };
 
     this.reset = function () {
-        position = Position.random(game);
+        position = Position.random(game.width(), game.height());
         direction = Direction.random();
         return this;
     };

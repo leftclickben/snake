@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const Apple = require('../../../public/app/model/Apple');
 const Game = require('../../../public/app/model/Game');
-const Position = require('../../../public/app/model/Position');
+const Position = require('../../../public/app/util/Position');
 
 describe('The `Apple` model', () => {
     it('Is a constructor function', () => {
