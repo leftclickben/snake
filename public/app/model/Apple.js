@@ -1,6 +1,5 @@
 module.exports = Apple;
 
-const Random = require('../util/Random');
 const Position = require('./Position');
 
 function Apple (game) {
