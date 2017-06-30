@@ -1,7 +1,6 @@
 const expect = require('chai').expect;
 const sinon = require('sinon');
 const KeyController = require('../../../public/app/controller/KeyController');
-const Game = require('../../../public/app/model/Game');
 
 describe('The `KeyController` model', () => {
     it('Is a constructor function', () => {
