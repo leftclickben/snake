@@ -26,7 +26,7 @@ describe('The `KeyController` model', () => {
             beforeEach(() => {
                 evt = {
                     keyCode: 37,
-                    preventDefault: sinon.spy()
+                    stopPropagation: sinon.spy()
                 };
                 document.addEventListener.firstCall.args[1](evt);
             });
@@ -35,7 +35,7 @@ describe('The `KeyController` model', () => {
                 expect(snake.enqueueDirectionChange.firstCall.args[0]).to.equal(37);
             });
             it('Prevents the event cascade', () => {
-                expect(evt.preventDefault.calledOnce).to.equal(true);
+                expect(evt.stopPropagation.calledOnce).to.equal(true);
             });
         });
     });
