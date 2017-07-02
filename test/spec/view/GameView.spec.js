@@ -22,6 +22,8 @@ describe('The `GameView` view controller', () => {
             context = {
                 clearRect: sinon.spy(),
                 beginPath: sinon.spy(),
+                moveTo: sinon.spy(),
+                lineTo: sinon.spy(),
                 arc: sinon.spy(),
                 fill: sinon.spy(),
                 stroke: sinon.spy(),
@@ -61,16 +63,17 @@ describe('The `GameView` view controller', () => {
                     expect(context.clearRect.calledOnce).to.equal(true);
                     expect(context.clearRect.firstCall.args).to.deep.equal([ 0, 0, 300, 200 ]);
 
-                    expect(context.beginPath.calledOnce).to.equal(true);
-                    expect(context.arc.calledOnce).to.equal(true);
-                    expect(context.arc.firstCall.args).to.deep.equal([ 46, 26, 3, 0, 2 * Math.PI, false ]);
-                    expect(context.fill.calledOnce).to.equal(true);
-                    expect(context.stroke.calledOnce).to.equal(true);
+                    expect(context.beginPath.calledTwice).to.equal(true); // Snake and apple
+                    expect(context.fill.calledTwice).to.equal(true);
+                    expect(context.stroke.calledTwice).to.equal(true);
 
-                    expect(context.fillRect.callCount).to.equal(3);
+                    expect(context.fillRect.callCount).to.equal(3); // One per body segment
                     expect(context.fillRect.firstCall.args).to.deep.equal([ 0, 0, 10, 10 ]);
                     expect(context.fillRect.secondCall.args).to.deep.equal([ 10, 0, 10, 10 ]);
                     expect(context.fillRect.thirdCall.args).to.deep.equal([ 20, 0, 10, 10 ]);
+
+                    expect(context.arc.callCount).to.equal(5); // Head, tail and two eyes on snake, plus one for apple
+                    expect(context.lineTo.callCount).to.equal(6); // Two per body segment
                 });
             });
         });
