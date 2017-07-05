@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "node_modules/.bin/eslint public/app test/spec",
     "test": "npm run lint && node_modules/.bin/mocha test/spec/**/*.spec.js",
-    "build": "npm run test && rm -rf dist && mkdir -p dist && node_modules/.bin/webpack && cp public/index.html dist/"
+    "build": "npm run test && rm -rf dist && mkdir -p dist && node_modules/.bin/webpack && cp public/index.html dist/ && cp -R public/css dist/"
   },
   "author": "Ben New <ben@leftclick.com.au>",
   "license": "MIT",
