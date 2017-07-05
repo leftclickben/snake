@@ -3,16 +3,15 @@ module.exports = Game;
 const Snake = require('./Snake');
 const Apple = require('./Apple');
 
-function Game (width, height, growthRate) {
-    var snake = new Snake(this),
-        apple = new Apple(this),
+function Game (width, height, nextSnakeLength, nextAppleValue) {
+    var snake = new Snake(this, nextSnakeLength),
+        apple = new Apple(this, nextAppleValue),
         score = 0,
         dead = false,
         running = false;
 
     this.width = () => width;
     this.height = () => height;
-    this.growthRate = () => growthRate;
     this.snake = () => snake;
     this.apple = () => apple;
     this.score = () => score;

@@ -3,19 +3,16 @@ module.exports = Snake;
 const Position = require('../util/Position');
 const Direction = require('../util/Direction');
 
-function Snake (game) {
-    var body = [],
-        length = 5,
-        directionChangeQueue = [],
-        position, direction;
+function Snake (game, nextSnakeLength) {
+    var body, length, directionChangeQueue, position, direction;
 
     this.game = () => game;
     this.position = () => position;
     this.direction = () => direction;
     this.bodyLength = () => body.length;
-    this.bodyElement = (i) => body[i];
+    this.bodyElement = (i) => i < 0 || i >= body.length ? undefined : body[i];
 
-    this.longer = () => length = Math.ceil(length * game.growthRate());
+    this.longer = () => length = nextSnakeLength(length);
 
     this.enqueueDirectionChange = (dir) => {
         if (dir === Direction.UP || dir === Direction.DOWN || dir === Direction.LEFT || dir === Direction.RIGHT) {
@@ -70,6 +67,9 @@ function Snake (game) {
     };
 
     this.reset = function () {
+        body = [];
+        length = nextSnakeLength();
+        directionChangeQueue = [];
         position = Position.random(game.width(), game.height());
         direction = Direction.random();
         return this;

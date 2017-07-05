@@ -10,7 +10,7 @@ describe('The `GameView` view controller', () => {
     describe('When constructed', () => {
         var game, context, canvas, view;
         beforeEach(() => {
-            game = new Game(30, 20, 1.1);
+            game = new Game(30, 20, (length) => length ? length * 1.1 : 5, (points) => points ? points + 10 : 100);
             sinon.stub(game.apple(), 'position').returns({
                 coords: () => ({ x: 4, y: 2 })
             });

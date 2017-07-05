@@ -1,6 +1,5 @@
 const expect = require('chai').expect;
 const Apple = require('../../../public/app/model/Apple');
-const Game = require('../../../public/app/model/Game');
 const Position = require('../../../public/app/util/Position');
 
 describe('The `Apple` model', () => {
@@ -10,8 +9,11 @@ describe('The `Apple` model', () => {
     describe('When constructed', () => {
         var game, apple;
         beforeEach(() => {
-            game = new Game(30, 20, 1.1);
-            apple = new Apple(game);
+            game = {
+                width: () => 30,
+                height: () => 20
+            };
+            apple = new Apple(game, (points) => points ? points + 10 : 100);
         });
         it('Exposes the correct methods', () => {
             expect(apple.game).to.be.a('function');
