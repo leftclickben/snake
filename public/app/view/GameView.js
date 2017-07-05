@@ -32,7 +32,7 @@ function GameView (game, canvas, score, tileSize) {
         context.strokeStyle = game.dead() ? '#eee' : '#330';
         context.lineWidth = 1;
         context.beginPath();
-        for (let i = 0, len = game.snake().bodyLength(); i < len; ++i) {
+        for (let i = 0, len = snake.bodyLength(); i < len; ++i) {
             let coords = snake.bodyElement(i),
                 previousCoords = i === 0 ? undefined : snake.bodyElement(i - 1),
                 nextCoords = snake.bodyElement(i + 1),
